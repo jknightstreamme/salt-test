@@ -1,7 +1,3 @@
 base:
   '*':
     - apt
-    
-development:
-  '*':
-    - test
