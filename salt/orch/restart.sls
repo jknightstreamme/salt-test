@@ -8,4 +8,4 @@
     - kwarg:
       - fun: start
       - instance:
-        - {{ data['id'] }}
+        - {{ instance_id }}
