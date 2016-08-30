@@ -1,5 +1,5 @@
 ---
-{% set tag = salt.pillar.get('instance_id') %}
+{% set instance_id = salt.pillar.get('instance_id') %}
 
 "Restart start that server":
   salt.function:
