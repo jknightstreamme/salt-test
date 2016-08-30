@@ -7,5 +7,4 @@
     - name: cloud.action
     - kwarg:
         fun: start
-        instance:
-          - {{ instance_id }}
+        instance: {{ instance_id }}
