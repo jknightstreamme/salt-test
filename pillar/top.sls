@@ -1,4 +1,4 @@
-base:
+{{env}}:
   '*':
     - all
     - test1
