@@ -6,6 +6,6 @@
     - tgt: 'dev-master*'
     - name: cloud.action
     - kwarg:
-      - fun: start
-      - instance:
-        - {{ instance_id }}
+        fun: start
+        instance:
+          - {{ instance_id }}
