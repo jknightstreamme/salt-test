@@ -1,4 +1,5 @@
 ---
+
 {% set instance_id = pillar.get('instance_id', 'test') %}
 {% set project = pillar.get('gce_project', 'test-project') %}
 
