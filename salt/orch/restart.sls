@@ -1,6 +1,6 @@
 ---
-{% set instance_id = salt.pillar.get('instance_id', 'test') %}
-{% set project = salt.pillar.get('gce_project', 'test-project') %}
+{% set instance_id = pillar.get('instance_id', 'test') %}
+{% set project = pillar.get('gce_project', 'test-project') %}
 
 vcloud.start:
   salt.function:
