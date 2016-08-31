@@ -1,8 +1,46 @@
+# -*- coding: utf-8 -*-
+"""
+:maintainer: Joe Knight
+:maturity: 20150910
+:requires: none
+:platform: all
+
+"""
+
+from __future__ import absolute_import
+
 import time
+import logging
 from oauth2client.client import GoogleCredentials
 from googleapiclient import discovery
 
+
+LOG = logging.getLogger(__name__)
+
+__virtualname__ = 'vcloud'
+
+
+def __virtual__():
+    """
+    Determine whether or not to load this module
+    """
+    return __virtualname__
+
+
 _instance_list = []
+
+
+def start(instance, project):
+    """"""
+    credentials = GoogleCredentials.get_application_default()
+    compute = discovery.build('compute', 'v1', credentials=credentials)
+    _gcloud_start_instance(compute, project, instance)
+
+
+def stop(instance, project):
+    credentials = GoogleCredentials.get_application_default()
+    compute = discovery.build('compute', 'v1', credentials=credentials)
+    _gcloud_stop_instance(compute, project, instance)
 
 
 def _get_instance_list(service, project):
@@ -92,15 +130,3 @@ def _wait_for_operation(compute, project, zone, operation):
             return result
 
         time.sleep(1)
-
-
-def start(instance, project):
-    credentials = GoogleCredentials.get_application_default()
-    compute = discovery.build('compute', 'v1', credentials=credentials)
-    _gcloud_start_instance(compute, project, instance)
-
-
-def stop(instance, project):
-    credentials = GoogleCredentials.get_application_default()
-    compute = discovery.build('compute', 'v1', credentials=credentials)
-    _gcloud_stop_instance(compute, project, instance)
