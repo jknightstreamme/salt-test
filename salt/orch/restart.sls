@@ -6,6 +6,6 @@
   salt.function:
     - tgt: 'dev-master*'
     - name: vcloud.start
+    - project: {{ project }}
     - kwarg:
-        project: {{ project }}
         instance: {{ instance_id }}
