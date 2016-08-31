@@ -30,14 +30,31 @@ def __virtual__():
 _instance_list = []
 
 
-def start(instance, project):
-    """"""
+def start(*args, **kwargs):
+    """
+    Start a gcloud server
+
+    :param args:
+    :param kwargs:
+    :return:
+    """
+    project = kwargs.get('project')
+    instance = kwargs.get('instance')
     credentials = GoogleCredentials.get_application_default()
     compute = discovery.build('compute', 'v1', credentials=credentials)
     _gcloud_start_instance(compute, project, instance)
 
 
-def stop(instance, project):
+def stop(*args, **kwargs):
+    """
+    Stop a gcloud server
+
+    :param args:
+    :param kwargs:
+    :return:
+    """
+    project = kwargs.get('project')
+    instance = kwargs.get('instance')
     credentials = GoogleCredentials.get_application_default()
     compute = discovery.build('compute', 'v1', credentials=credentials)
     _gcloud_stop_instance(compute, project, instance)
